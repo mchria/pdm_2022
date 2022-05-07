@@ -1,0 +1,15 @@
+var alunos =[
+	{nome:"Sophia", nota:10},
+	{nome:"Rodrigo", nota:5},
+	{nome:"Thaina", nota:3},
+	{nome:"José", nota:7},
+  {nome:"Hugo", nota:9.5},
+];
+
+var ap = alunos.filter(function (elem) {
+	return elem.nota >=6;
+});
+
+ap.map(function (elem) {
+	console.log(elem.nome +" - "+ elem.nota);
+})
