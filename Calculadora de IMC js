@@ -1,31 +1,11 @@
-// JS
+calcularIMC = function (){
+var formulario = document.getElementById("formulario");
 
-function validaEntrada(args) {
-	for (let i = 0; i < arguments.length; i++) {
-		if (!!arguments[i] == false || arguments[i] < 0) {
-			return false;
-		}
-	}
-	return true;
+var kilos = +formulario.quilos.value;
+var metros = +formulario.metros.value;  
+var centimetros = +formulario.centimetros.value;
+
+var altura = (metros*100 + centimetros)/100;    
+var imc = kilos / (altura * altura);    
+formulario.imc.value = imc.toFixed(2);
 }
-
-function calcularIMC(kilos, altura) {
-	altura = altura / 100;
-	return (kilos / (altura * altura));
-}
-
-const formCalcularIMC = document.getElementById('form');
-
-formCalcularIMC.addEventListener('submit', function(event) {
-	event.preventDefault();
-
-	const kilos = parseFloat(document.getElementById('kilos').value);
-	const altura = parseFloat(document.getElementById('altura').value);
-
-	if (validaEntrada(kilos, altura)) {
-		const imc = calcularIMC(kilos, altura);
-		document.getElementById('imc').value = parseInt(imc).toFixed(2);
-	} else {
-		document.getElementById('imc').value = "## ERRO ##";
-	}
-});
